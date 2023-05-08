@@ -20,8 +20,8 @@
     data-position="..." data-normal="...">Brochure</button>
 
 <script>
-hotspotButton.addEventListener('click', () => {
-  if (modelViewer.paused) {
+Brochure.addEventListener('click', () => {
+  if (modelViewer.play) {
     modelViewer.play();
   } else {
     modelViewer.pause();
