@@ -1,108 +1,68 @@
+<!doctype html>
 <html lang="en">
+  <head>
+    <title>TNA AR</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+    <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  </head>
+  <body>
+     <div id="card">
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="TNA.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif" poster1="loading-gif.gif" shadow-intensity="1">
+       
+      
+          <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>
+     <section class="attributiontwo">
+       <p style="background-image: url('black.png')" style="width:60px;height:60px; padding-left: 0px;padding-top: 10px;">
+      
+      <span>
+        <a href="https://drive.google.com/file/d/17ENqgYiIehtTJLoKu1tHC5S6sj9mdDCj/view?usp=sharing"><img src="Brochure.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 17px;padding-top: 0px;"></a>
+        <a href="https://drive.google.com/file/d/1qp8oTnwX4qtDK-SBT2PsBxhJ-ilR1idb/view?usp=sharing"><img src="Video.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
+        <a href="https://www.jnjmedtech.com/en-US/product/tn-advanced"><img src="web.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
+        <a href="http://synthes.vo.llnwd.net/o16/LLNWMB8/US%20Mobile/Synthes%20North%20America/Product%20Support%20Materials/Technique%20Guides/Surgical%20Technique%20Guide%20-%20TN-Advanced%20Tibial%20Nailing%20System-Suprapatellar%20Appooach.pdf"><img src="serch.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSew4D56CSKpONvc30Ay7cLUY6FnPCOs7zK9IPYRLQWQPswbsg/viewform?usp=sf_link"><img src="form.png" id="youtube-icon" align="center" style="width:30px;height:40px; padding-left: 20px;padding-top: 0px;"></a>
+            
+      </span>
+   
+    </section>
+      
+    </div>
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-<head>
-<title>Marvin XR</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="module" src="https://unpkg.com/@google/model-viewer"></script>
-<script src="https://unpkg.com/focus-visible/dist/focus-visible.js" defer></script>
-<link rel="stylesheet" href="style.css">
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmfa5mN11acCZiBwl-KE0zBkgyXC_tUjQ",
+    authDomain: "tnar-6e6ca.firebaseapp.com",
+    projectId: "tnar-6e6ca",
+    storageBucket: "tnar-6e6ca.appspot.com",
+    messagingSenderId: "1063868358337",
+    appId: "1:1063868358337:web:5d644937ac830773b0be40",
+    measurementId: "G-REGDK2MQNM"
+  };
 
-</head>
-
-
-<body>
-<section>
-
-<div class="box">
-
-<div class="square" style="--i:0;"></div>
-<div class="square" style="--i:1;"></div>
-<div class="square" style="--i:2;"></div>
-<div class="square" style="--i:3;"></div>
-<div class="square" style="--i:4;"></div>
-<div class="square" style="--i:5;"></div>
-
-
-
-<div id="unsupported-desktop">
-<h2 id="banner_desktop" style="font-family: Arial, Helvetica, sans-serif; font-size: 26px; color: white; margin-left: 40%; padding-top: 5%;"><b>Marvin XR</b></h2>
-
-<div style="width: 100%;">
-<div style="width: 40%; float: left; padding: 5px;">
-<model-viewer poster="{{ url_for('static', filename = 'poster.png') }}"
-src="{{ url_for('static', filename = 'latestanimato.glb') }}"
-auto-rotate camera-controls autoplay ar shadow-intensity="1"
-loading="eager" class="container"></model-viewer>
-</div>
-
-<div style="width: 40%; float: right; padding: 5px;">
-<img src="{{ url_for('static', filename = 'latestanimato.png') }}" class="container_qr">
-</div>
-
-</div>
-<br>
-
-<div style="width: 100%; margin-top: 440px;">
-<p id="desktop_title1" style="font-family: Helvetica, sans-serif; font-size: 23px; color: white; float: left; margin-left: 10%;">
-Open Your Smartphone Camera and Scan the QR Code </p>
-<br><br>
-<p id="desktop_title2" style="font-family: Helvetica, sans-serif; font-size: 19px; color: white; margin-left: 26%; float: left;">
-Or Type the Below URL in Browser</p>
-<br><br>
-<p id="desktop_title3" style="font-family: Optima, sans-serif; font-size: 21px; color: white; margin-left: 26%; margin-right: 39%;">
-<a href="http://latestanimato.marvinxr.com" style="color: white;">latestanimato.marvinxr.com</a>
-</p>
-<br>
-</div>
-
-</div>
-
-<div id="supported-mobile" style="width:100%; height:100%;">
-<p id="banner" style="font-family: Arial, Helvetica, sans-serif; font-size: 26px; color: white; margin-left: 32%;"><b>Marvin XR</b>
-</p>
-
-<model-viewer
-id="color" loading="eager"
-ar-scale="auto" camera-controls
-camera-controls interaction-prompt="none"
-poster="{{ url_for('static', filename = 'poster.png') }}"
-src="{{ url_for('static', filename = 'TNA.glb') }}"
-ios-src="{{ url_for('static', filename = 'TNA.usdz') }}"
-autoplay ar ar-modes="webxr scene-viewer quick-look"
-class="container" height="350">
-<button slot="ar-button" class="ar-button" id="activate_ar" style="background-color: #A90133; border-color: #A90133; font-family: Optima, sans-serif; font-size: 22px; color: white; margin-top: 30px;">👋 Activate AR</button>
-</model-viewer>
-
-<script src="script.js"></script>
-
-</div>
-
-</section>
-
-<script>
-let details = navigator.userAgent;
-let regexp = /android|iphone|kindle|ipad/i;
-let isMobileDevice = regexp.test(details);
-
-if (isMobileDevice) {
-document.getElementById("unsupported-desktop").style.display="none";
-document.getElementById("blank_div").style.display="none";
-document.getElementById("desktop-qr").style.display="none";
-document.getElementById("desktop_title1").style.display="none";
-document.getElementById("desktop_title2").style.display="none";
-document.getElementById("desktop_title3").style.display="none";
-document.getElementById("desktop_title4").style.display="none";
-document.getElementById("activate_ar").click();
-
-} else {
-document.getElementById("supported-mobile").style.display="none";
-document.getElementById("banner").style.display="none";
-document.getElementById("color").style.display="none";
-document.getElementById("activate_ar").style.display="none";
-}
-window.addEventListener("load", isMobileDevice);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 </script>
-</body>
+  </body>
 </html>
