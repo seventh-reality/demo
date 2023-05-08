@@ -12,17 +12,17 @@
   <body>
      <div id="card">
     <!-- <model-viewer> HTML element -->
-<model-viewer
-id="color" loading="eager"
-ar-scale="auto" camera-controls
-camera-controls interaction-prompt="none"
-poster="{{ url_for('static', filename = 'poster.webp') }}"
-src="{{ url_for('static', filename = 'TNA.glb') }}"
-ios-src="{{ url_for('static', filename = 'TNA.usdz') }}"
-autoplay ar ar-modes="webxr scene-viewer quick-look"
-class="container" height="350">
-<button slot="ar-button" class="ar-button" id="activate_ar" style="background-color: #A90133; border-color: #A90133; font-family: Optima, sans-serif; font-size: 22px; color: white; margin-top: 30px;">👋 Activate AR</button>
-</model-viewer>
+ <model-viewer src="TNA.glb" ios-src=TNA.usdz ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1">
+       
+      
+          <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>
 
      <section class="attributiontwo">
        <p style="background-image: url('black.png')" style="width:60px;height:60px; padding-left: 0px;padding-top: 10px;">
