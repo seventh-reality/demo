@@ -3,8 +3,11 @@
   <head>
     <title>TNA AR</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
+<script src="https://unpkg.com/focus-visible/dist/focus-visible.js" defer></script>
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
@@ -42,5 +45,30 @@
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+    </section>
+
+<script>
+let details = navigator.userAgent;
+let regexp = /android|iphone|kindle|ipad/i;
+let isMobileDevice = regexp.test(details);
+
+if (isMobileDevice) {
+document.getElementById("unsupported-desktop").style.display="none";
+document.getElementById("blank_div").style.display="none";
+document.getElementById("desktop-qr").style.display="none";
+document.getElementById("desktop_title1").style.display="none";
+document.getElementById("desktop_title2").style.display="none";
+document.getElementById("desktop_title3").style.display="none";
+document.getElementById("desktop_title4").style.display="none";
+document.getElementById("activate_ar").click();
+
+} else {
+document.getElementById("supported-mobile").style.display="none";
+document.getElementById("banner").style.display="none";
+document.getElementById("color").style.display="none";
+document.getElementById("activate_ar").style.display="none";
+}
+window.addEventListener("load", isMobileDevice);
+</script>
   </body>
 </html>
