@@ -15,28 +15,20 @@
      <div id="card">
     <!-- <model-viewer> HTML element -->
     <model-viewer src="TNA.glb" ios-src="TNA.usdz" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="loading.gif" poster1="loading-gif.gif" shadow-intensity="1" playOnce(1)>
-      // non looping animation
-	  const modelViewer = document.querySelector("model-viewer");
-	  modelViewer.animationName = 'All Animations';
-	  var extremelySmallIntervalTime = 0.05;
-	  var j=0;
-	  
-	  setInterval(function(){ 
-       
-		  //console.log(modelViewer.currentTime);	
-		  if(modelViewer.currentTime > 0 && modelViewer.currentTime < extremelySmallIntervalTime)
-		  {
-			   
-			  if ( j > 0 )
- 			  {
- 				  modelViewer.pause();
- 				  modelViewer.currentTime = 0;
- 			  }
-			   
-			   j++;
-			   console.log(j);
-		  }
-  	  }, extremelySmallIntervalTime*1000);
+      <script>
+function play_to_end (){
+//play to end or rewind if animation is at end//
+	const modelViewer = document.querySelector('#homme');
+	modelViewer.play();
+	t=modelViewer.duration;
+	t=t*1000/2 ;// because duration is in second and time to play and rewind//
+	setTimeout(stop, t);
+}
+function stop(){
+const modelViewer = document.querySelector('#homme');
+modelViewer.pause();
+}
+</script>
        
       
           <div class="progress-bar hide" slot="progress-bar">
