@@ -34,6 +34,26 @@
       <div id="ar-prompt">
           <img src="ar_hand_prompt.png">
       </div>
+    struct ContentView : View{
+	    @State var propId: Int = 0
+	    var body: some View{
+	    ZStack(alignment: .bottom){
+	    ARViewContainer(propId: $propId). edgesIgnoringSafeArea(.all)
+	    HStack{
+	    Button(action: {
+	    self.propId = self.propId <= 0 ? 0 : self.propId -1
+	    }){
+		Image("PreviousButton").clipShape(Circle())			 
+					 }
+					 Button(action: {}){
+					 Image("ShutterButton").clipShape(Circle())}
+					 Button(actio: {
+					 self.propId = self.propId >= 2 ? 2 : self.propId + 1)}){
+	    Image("NextButton").clipShape(Circle())
+	    }
+	    }
+	    }
+	    }	    
     </model-viewer>
 	     
 	     
